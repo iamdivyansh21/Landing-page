@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2</title>
+
+    <style>
+        /* .sticky {
+            position: fixed;
+            background-color: #fff;
+            top: 0;
+            width: 100%;
+        } */
+
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        .navbar {
+            /* border-bottom: 1px solid rgb(224, 216, 216); */
+            height: 12%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            background-color: #fff;
+            top: 0;
+            width: 100%;
+        }
+
+        .navbar-brand img {
+            width: 29%;
+            padding: 10px 0px;
+            margin-left: 50px;
+        }
+
+        #nav {
+            list-style: none;
+            display: flex;
+        }
+
+        .ml-auto {
+            margin-right: 20px;
+        }
+
+        .nav-item {
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        .page-scroll {
+            text-decoration: none;
+            color: rgb(99, 94, 94);
+        }
+
+        .navbar-nav .nav-item a {
+            font-size: 18px;
+            font-weight: 400;
+            color: #676f73;
+
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .nav-item:hover a {
+            color: rgba(5, 5, 5, 0.774);
+        }
+
+        .nav-item:hover {
+            transition: all .3s ease-out 0s;
+            transform: scale(1.2);
+        }
+
+        /*------------------------------------ sections css---------------------------------- */
+
+        .home,
+        .delivery {
+            display: flex;
+            width: 100%;
+            margin-top: 20px;
+            padding: 50px;
+        }
+
+        .leftsection,
+        .del-leftsection {
+            /* border: 2px solid red; */
+            padding: 60px;
+            width: 50%;
+        }
+
+        .rightsection,
+        .del-rightsection {
+            /* border: 2px solid red; */
+            width: 50%;
+        }
+
+        .rightsection img,
+        .del-rightsection img {
+            /* border: 2px solid red; */
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 50px;
+            color: rgb(18, 17, 17);
+        }
+
+        span {
+            font-size: 45px;
+            color: rgb(59, 57, 57);
+            font-weight: 500;
+        }
+
+        .para {
+            /* border: 2px solid black; */
+            color: rgb(82, 77, 77);
+            font-size: 1.3rem;
+            margin: 10px 0px;
+            padding: 30px 0px;
+            line-height: 25px;
+            font-weight: 400;
+            /* font-size: 1.2rem; */
+        }
+
+        .button,
+        .del-section-button {
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 400;
+            background: #e8505b;
+            text-align: center;
+            margin-left: 15px;
+            padding: 17px 37px;
+            font-size: 18px;
+            border-radius: 5px;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all .4s ease-in-out;
+        }
+
+        .button:hover,
+        .del-section-button:hover {
+            /* border: 1px solid black; */
+            /* color: whitesmoke;
+            padding: 10px 20px;
+            background-color: rgb(186, 44, 44); */
+            transform: scale(1.1);
+
+        }
+
+        /* services css */
+
+        .Service-heading {
+            /* border: 2px solid black; */
+            text-align: center;
+        }
+
+        .heading1 {
+            color: #e8505b;
+            margin-top: 50px;
+        }
+
+        .heading2 {
+            margin: 20px;
+            margin-bottom: 50px;
+        }
+
+        .services {
+            display: grid;
+            gap: 30px;
+            padding: 0px 80px;
+            /* border: 1px solid black; */
+            margin-bottom: 50px;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .service1 {
+            /* border: 1px solid black; */
+            margin-bottom: 30px;
+            padding: 30px;
+            border-radius: 5px;
+        }
+
+        .service1 img {
+            height: 90px;
+            width: 90px;
+        }
+
+        .service2 {
+            /* border: 1px solid black; */
+            margin-bottom: 30px;
+            padding: 30px;
+            border-radius: 5px;
+        }
+
+        .service2 img {
+            height: 90px;
+            width: 90px;
+        }
+
+        .service3 {
+            /* border: 1px solid black; */
+            margin-bottom: 30px;
+            padding: 30px;
+            border-radius: 5px;
+        }
+
+        .service3 img {
+            height: 90px;
+            width: 90px;
+        }
+
+        .service4 {
+            /* border: 1px solid black; */
+            margin-bottom: 30px;
+            padding: 30px;
+            border-radius: 5px;
+        }
+
+        .service4 img {
+            height: 90px;
+            width: 90px;
+        }
+
+        .food {
+            margin: 20px 0px;
+            font-weight: 700;
+            color: rgb(34, 33, 33);
+            font-size: 2rem;
+        }
+
+        .grocery {
+            margin: 20px 0px;
+            font-weight: 700;
+            color: rgb(34, 33, 33);
+            font-size: 2rem;
+        }
+
+        .medicine {
+            margin: 20px 0px;
+            font-weight: 700;
+            color: rgb(34, 33, 33);
+            font-size: 2rem;
+        }
+
+        .clothes {
+            margin: 20px 0px;
+            font-weight: 700;
+            color: rgb(34, 33, 33);
+            font-size: 2rem;
+        }
+
+        .service-content {
+            margin: 20px 0px;
+            color: rgb(82, 77, 77);
+            font-size: 1.3rem;
+        }
+
+        .about {
+            display: flex;
+            gap: 90px;
+        }
+
+        .leftabout {
+            width: 50%;
+            padding-left: 30px;
+        }
+
+        .rightabout {
+            width: 50%;
+            /* padding-left: 30px; */
+        }
+
+        .leftabout img {
+            width: 100%;
+            /* padding-left: 20px; */
+
+        }
+
+        .aboutheading1,
+        .del-heading1 {
+            color: #e8505b;
+            margin-top: 0px;
+            margin-bottom: 25px;
+
+        }
+
+        .aboutheading2,
+        .del-heading2 {
+            margin-bottom: 35px;
+            font-weight: 700;
+
+        }
+
+        .aboutcontent,
+        .del-content {
+            color: rgb(82, 77, 77);
+            font-size: 1.3rem;
+            margin-bottom: 35px;
+        }
+
+        .counter {
+            height: 20%;
+            width: 80%;
+
+            border-radius: 5px;
+            display: flex;
+            background-color: #e8505b;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+
+        }
+
+        .counter1 h3 {
+            color: white;
+            margin-bottom: 5px;
+            font-family: fira sans, sans-serif;
+            font-weight: 700;
+            font-size: 30px;
+        }
+
+        .counter1 {
+            border-right: 2px solid white;
+            padding-right: 40px;
+        }
+
+        .counter1 h5 {
+            color: white;
+            font-family: fira sans, sans-serif;
+            font-weight: 500;
+            font-size: 18px;
+        }
+
+        .counter2 h3 {
+            color: white;
+            margin-bottom: 5px;
+            font-family: fira sans, sans-serif;
+            font-weight: 700;
+            font-size: 30px;
+        }
+
+        .counter2 {
+            border-right: 2px solid white;
+            padding-right: 40px;
+        }
+
+        .counter2 h5 {
+            color: white;
+            font-family: fira sans, sans-serif;
+            font-weight: 500;
+            font-size: 18px;
+        }
+
+        .counter3 h3 {
+            color: white;
+            margin-bottom: 5px;
+            font-family: fira sans, sans-serif;
+            font-weight: 700;
+            font-size: 30px;
+        }
+
+        .counter3 h5 {
+            color: white;
+            margin-bottom: 5px;
+            font-family: fira sans, sans-serif;
+            font-weight: 500;
+            font-size: 18px;
+        }
+
+
+
+
+
+        .partners {
+            display: flex;
+            justify-content: space-between;
+            /* border: 1px solid black; */
+            width: 100%;
+        }
+
+
+        .partners-heading {
+            width: 100%;
+            text-align: center;
+            color: #e8505b;
+
+        }
+
+        .partners-heading h2 {
+            display: inline-block;
+            border-bottom: 3px solid black;
+            padding-bottom: 6px;
+            border-radius: 10px;
+        }
+
+        .partner1 {
+            /* border: 1px solid black; */
+            width: 50%;
+            text-align: center;
+        }
+
+        .partner1 img {
+            /* border: 1px solid black; */
+            width: 40%;
+            opacity: 0.43;
+            transition: all .3s ease-out 0s;
+
+        }
+
+        .partner1 img:hover {
+            /* border: 1px solid black; */
+            width: 40%;
+            opacity: 1;
+
+        }
+
+        .partner2 {
+            /* border: 1px solid black; */
+            width: 50%;
+            text-align: center;
+
+        }
+
+        .partner2 img {
+            /* border: 1px solid black; */
+            opacity: 0.43;
+            width: 40%;
+            transition: all .3s ease-out 0s;
+
+        }
+
+        .partner2 img:hover {
+            /* border: 1px solid black; */
+            width: 40%;
+            opacity: 1;
+
+        }
+
+        /* ------------------------footer css------------------------------ */
+
+
+
+        .footersec {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            padding-bottom: 150px;
+            background: #263238;
+            position: relative;
+            z-index: 1;
+
+        }
+
+        h3 {
+            font-size: 30px;
+            margin-top: 20px;
+            margin-bottom: 25px;
+        }
+
+        .footer-sec1 {
+            /* border: 1px solid wheat; */
+            margin-top: 20px;
+            color: white;
+            width: 25%;
+            text-align: center;
+        }
+
+        .footer-sec2 {
+            /* border: 1px solid wheat; */
+            color: white;
+            width: 25%;
+            text-align: center;
+
+        }
+
+        .footer-sec3 {
+            /* border: 1px solid wheat; */
+            color: white;
+            width: 25%;
+            text-align: center;
+
+        }
+
+        .footer-sec4 {
+            /* border: 1px solid wheat; */
+            color: white;
+            width: 25%;
+            text-align: center;
+
+        }
+
+        .links {
+            list-style: none;
+            pad: 3px;
+            /* color: white; */
+        }
+
+        .links a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 30px;
+        }
+
+        .links a:hover {
+            color: #e8505b;
+            transition: all .3s ease-out 0s;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar sticky">
+
+        <div class="icon">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.png" alt="Logo">
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+            <ul id="nav" class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="page-scroll" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="page-scroll" href="#services">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="page-scroll" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="page-scroll" href="#delivery">How It Works</a>
+                </li>
+
+            </ul>
+        </div>
+
+    </nav>
+    <!-- main start -->
+    <main>
+        <section id="home">
+            <div class="home">
+                <div class="leftsection">
+                    <h1>Home Delivery
+                        <span>From Stores Near You</span>
+                    </h1>
+                    <p class="para">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum aliquid consectetur
+                        unde dolore? Ratione similique provident accusantium, repellendus magnam dolorem!</p>
+
+                    <a href="#" class="button">Download App</a>
+                </div>
+                <div class="rightsection">
+                    <img src="images/hero-img.png" alt="Image">
+                </div>
+            </div>
+
+
+        </section>
+        <section id="services">
+            <div class="Service-heading">
+                <div class="heading1">
+                    <h2>Delivery Services</h2>
+                </div>
+                <div class="heading2">
+                    <h1>All Essentials You Need</h1>
+                </div>
+            </div>
+
+            <div class="services">
+                <div class="service1">
+                    <img src="images/service-icon-1.png" alt="Service1">
+                    <div class="food">Food
+                    </div>
+                    <div class="service-content">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus nemo nam excepturi quo
+                        reprehenderit dolorem?
+                    </div>
+                </div>
+                <div class="service2">
+                    <img src="images/service-icon-2.png" alt="Service2">
+                    <div class="grocery">Grocery
+                    </div>
+                    <div class="service-content"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus
+                        nemo nam excepturi quo
+                        reprehenderit dolorem?</div>
+                </div>
+                <div class="service3">
+                    <img src="images/service-icon-4.png" alt="Service3">
+                    <div class="medicine">Medicine
+                    </div>
+                    <div class="service-content"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus
+                        nemo nam excepturi quo
+                        reprehenderit dolorem?</div>
+                </div>
+                <div class="service4">
+                    <img src="images/service-icon-6.png" alt="Service4">
+                    <div class="clothes">Clothes
+                    </div>
+                    <div class="service-content"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus
+                        nemo nam excepturi quo
+                        reprehenderit dolorem?</div>
+                </div>
+            </div>
+        </section>
+        <section id="about">
+            <div class="about">
+                <div class="leftabout">
+                    <img src="images/about-img.png" alt="About Us">
+                </div>
+                <div class="rightabout">
+                    <div class="aboutheading1">
+                        <h2>About Us</h2>
+                    </div>
+                    <div class="aboutheading2">
+                        <h1>On-time Delivery and Customer Satisfaction</h1>
+                    </div>
+                    <div class="aboutcontent">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus
+                        aut porro laudantium, ab ut consequatur?Lorem ipsum dolor sit amet.
+                    </div>
+
+
+
+                    <div class="counter">
+                        <div class="counter1">
+                            <h3>1M+</h3>
+                            <h5>Download</h5>
+                        </div>
+                        <div class="counter2">
+                            <h3>234K+</h3>
+                            <h5>Happy User</h5>
+                        </div>
+                        <div class="counter3">
+                            <h3>34K+</h3>
+                            <h5>Reviews</h5>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+        <section id="delivery">
+            <div class="delivery">
+                <div class="del-leftsection">
+                    <div class="del-heading1">
+                        <h2>Fast Delivery</h2>
+                    </div>
+                    <div class="del-heading2">
+                        <h1>Order Now, Recieve Within 30mins</h1>
+                    </div>
+                    <div class="del-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus
+                        aut porro laudantium, ab ut consequatur?Lorem ipsum dolor sit amet.
+                    </div>
+                    <a href="#" class="del-section-button">Download App</a>
+                </div>
+                <div class="del-rightsection">
+                    <img src="images/delivery-img.png" alt="Delivery">
+                </div>
+            </div>
+
+
+        </section>
+
+        <section id="partners">
+            <div class="partners-heading">
+                <h2>Partners</h2>
+            </div>
+            <div class="partners">
+                <div class="partner1">
+                    <img src="images/partner-1.png" alt="partner-1">
+                </div>
+                <div class="partner2">
+                    <img src="images/partner-2.png" alt="partner-2">
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <!-- footer start -->
+    <footer>
+        <div class="footer">
+            <div class="footersec">
+                <div class="footer-sec1">
+                    <div class="icon">
+                        <a class="footer-brand" href="index.html">
+                            <img src="images/logo-2.png" alt="Logo">
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-sec2">
+                    <h3>About Us</h3>
+                    <ul class="links">
+                        <li><a href="Home">Home</a></li>
+                        <li><a href="Secvice">Secvice</a></li>
+                        <li><a href="About">About</a></li>
+                        <li><a href="Contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-sec3">
+                    <h3>About</h3>
+                    <ul class="links">
+                        <li><a href="Home">Partners</a></li>
+                        <li><a href="Secvice">Terms of Service</a></li>
+                        <li><a href="About">Privacy Policy</a></li>
+                        <li><a href="Contact">Refund Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-sec4">
+                    <h3>Support</h3>
+                    <ul class="links">
+                        <li><a href="Home">Open Ticket</a></li>
+                        <li><a href="Secvice">Community</a></li>
+                        <li><a href="About">Return Policy</a></li>
+                        <li><a href="Contact">Availability</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
